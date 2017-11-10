@@ -19,8 +19,8 @@ public class Book {
 
     @NotNull
     private String author;
-    @Column(nullable=true)
-    private int noPages;
+
+    private Integer noPages;
 
     @Column(columnDefinition = "boolean default false")
     private boolean ebook; //format ebook, audiobook, hardcover, etc
