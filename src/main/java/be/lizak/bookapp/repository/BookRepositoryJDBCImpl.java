@@ -49,7 +49,6 @@ public class BookRepositoryJDBCImpl implements BookRepository {
             book.setGenre(EnumMapper.mapToGenre(resultSet.getInt("genre")));
             book.setLanguage(EnumMapper.mapToLanguage(resultSet.getInt("language")));
 
-            //TODO: ENUMS MAPPEN Genre Language
             return book;
         });
     }
