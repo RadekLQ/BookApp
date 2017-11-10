@@ -36,7 +36,7 @@ public class BookRepositoryJDBCImpl implements BookRepository {
 
     @Override
     public List<Book> findAll() {
-        return jdbcTemplate.queryForList("SELECT * FROM Book", Book.class);
+        return jdbcTemplate.queryForList("SELECT * FROM Books", Book.class);
     }
 
     @Override
