@@ -11,7 +11,7 @@ public class Book {
     private int id;
 
     @NotNull
-    private String titel;
+    private String title;
     private String publisher;
 
     @NotNull
@@ -35,12 +35,12 @@ public class Book {
         return id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPublisher() {
@@ -112,7 +112,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "titel='" + titel + '\'' +
+                "title='" + title + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", author='" + author + '\'' +
