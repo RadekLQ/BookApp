@@ -19,6 +19,7 @@ public class Book {
 
     @NotNull
     private String author;
+    @Column(nullable=true)
     private int noPages;
 
     @Column(columnDefinition = "boolean default false")

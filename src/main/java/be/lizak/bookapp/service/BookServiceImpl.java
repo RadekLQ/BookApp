@@ -2,12 +2,17 @@ package be.lizak.bookapp.service;
 
 import be.lizak.bookapp.model.Book;
 import be.lizak.bookapp.model.Genre;
+import be.lizak.bookapp.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService {
+
+    @Autowired
+    private BookRepository repository;
 
     @Override
     public int addBook(Book book) {
@@ -26,7 +31,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findAll() {
-        return null;
+        //Extra business logic to be added
+        return repository.findAll();
     }
 
     @Override
