@@ -14,9 +14,10 @@ public class BookRepositoryJDBCImpl implements BookRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    //TODO implement
-    //TODO implement
-    //TODO implement
+    @Autowired
+    public BookRepositoryJDBCImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public int addBook(Book book) {

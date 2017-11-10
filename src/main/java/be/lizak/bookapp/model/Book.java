@@ -1,21 +1,37 @@
 package be.lizak.bookapp.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "Books")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @NotNull
     private String titel;
     private String publisher;
+
+    @NotNull
     private String isbn;
+
+    @NotNull
     private String author;
     private int noPages;
+
+    @Column(columnDefinition = "boolean default false")
     private boolean ebook; //format ebook, audiobook, hardcover, etc
     private String summary;
     private Language language;
     private Genre genre;
 
     public Book() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitel() {
@@ -74,6 +90,7 @@ public class Book {
         this.summary = summary;
     }
 
+    @Enumerated(EnumType.STRING)
     public Language getLanguage() {
         return language;
     }
@@ -82,6 +99,7 @@ public class Book {
         this.language = language;
     }
 
+    @Enumerated(EnumType.STRING)
     public Genre getGenre() {
         return genre;
     }
