@@ -45,8 +45,13 @@ public class BookRepositoryJDBCImpl implements BookRepository {
             book.setNoPages(resultSet.getInt("noPages"));
             book.setPublisher(resultSet.getString("publisher"));
             book.setSummary(resultSet.getString("summary"));
+            book.setId(resultSet.getInt("id"));
 
-            book.setGenre(EnumMapper.mapToGenre(resultSet.getInt("genre")));
+            String genre = resultSet.getString("genre");
+            if(genre != null) {
+                book.setGenre(EnumMapper.mapToGenre(resultSet.getInt("genre")));
+            }
+
             book.setLanguage(EnumMapper.mapToLanguage(resultSet.getInt("language")));
 
             return book;
