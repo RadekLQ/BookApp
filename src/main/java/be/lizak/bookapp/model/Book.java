@@ -71,11 +71,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getNoPages() {
+    public Integer getNoPages() {
         return noPages;
     }
 
-    public void setNoPages(int noPages) {
+    public void setNoPages(Integer noPages) {
         this.noPages = noPages;
     }
 

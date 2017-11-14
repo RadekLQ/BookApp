@@ -1,4 +1,4 @@
-package be.lizak.bookapp;
+package be.lizak.bookapp.apps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
