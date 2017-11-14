@@ -4,6 +4,8 @@ import be.lizak.bookapp.model.Book;
 import be.lizak.bookapp.model.Genre;
 import be.lizak.bookapp.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +13,18 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements BookService {
 
+    private final MessageSource ms;
+
+    private final BookRepository repository;
+
+    public BookServiceImpl(@Qualifier("bookRepositoryHibernateImpl")BookRepository repository, MessageSource ms) {
+        this.repository = repository;
+        this.ms = ms;
+    }
+
+
     @Autowired
-    private BookRepository repository;
+    private final BookRepository repository;
 
     @Override
     public int addBook(Book book) {
@@ -26,7 +38,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(Book book) {
-
     }
 
     @Override
