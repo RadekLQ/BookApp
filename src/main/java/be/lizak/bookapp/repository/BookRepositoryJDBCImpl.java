@@ -12,7 +12,6 @@ import java.util.List;
 @Repository
 public class BookRepositoryJDBCImpl implements BookRepository {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Autowired

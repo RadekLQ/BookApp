@@ -3,9 +3,7 @@ package be.lizak.bookapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
@@ -35,12 +33,6 @@ public class BookInventoryApplication {
         System.out.println("Title= " + messageSource.getMessage("title", new String [] {"Book","Radek"}, english));
         System.out.println("Title= " + messageSource.getMessage("title", new String []  {"Boek", "Radek"}, dutch));
 
-
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(BookInventoryApplication.class);
     }
 
 //    Only for not Spring Boot Application

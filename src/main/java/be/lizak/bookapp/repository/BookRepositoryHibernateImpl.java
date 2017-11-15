@@ -3,7 +3,6 @@ package be.lizak.bookapp.repository;
 import be.lizak.bookapp.model.Book;
 import be.lizak.bookapp.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,10 +10,10 @@ import java.util.List;
 @Repository
 public class BookRepositoryHibernateImpl implements BookRepository {
 
-    private final BookRepository repository;
+    private final BookJPARepository repository;
 
     @Autowired
-    public BookRepositoryHibernateImpl(@Qualifier("bookRepositoryHibernateImpl") BookRepository repository) {
+    public BookRepositoryHibernateImpl(BookJPARepository repository) {
         this.repository = repository;
     }
 
@@ -30,7 +29,6 @@ public class BookRepositoryHibernateImpl implements BookRepository {
 
     @Override
     public void deleteBook(Book book) {
-
     }
 
     @Override

@@ -17,14 +17,11 @@ public class BookServiceImpl implements BookService {
 
     private final BookRepository repository;
 
+    @Autowired
     public BookServiceImpl(@Qualifier("bookRepositoryHibernateImpl")BookRepository repository, MessageSource ms) {
         this.repository = repository;
         this.ms = ms;
     }
-
-
-    @Autowired
-    private final BookRepository repository;
 
     @Override
     public int addBook(Book book) {
