@@ -29,11 +29,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public int addBook(Book book) {
-        return 0;
-    }
-
-    @Override
     public int updateBook(Book book) {
         return 0;
     }
