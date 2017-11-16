@@ -60,4 +60,18 @@ public class BookRepositoryHibernateImpl implements BookRepository {
     public Book findByTitelAndAuthor(String titel, String author) {
         return null;
     }
+
+    @Override
+    public int addBook(Book book) {
+        Book b = repository.saveAndFlush(book);
+        return b != null ? 1 : 0;
+    }
+
+    @Override
+    public int updateBook(Book book)
+    {
+
+    }
+
+    //todo
 }

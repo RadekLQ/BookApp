@@ -25,6 +25,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public int addBook(Book book) {
+        return repository.addBook(book);
+    }
+
+    @Override
+    public int addBook(Book book) {
         return 0;
     }
 
