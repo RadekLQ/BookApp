@@ -3,11 +3,12 @@ package be.lizak.bookapp.repository;
 import be.lizak.bookapp.model.Book;
 import be.lizak.bookapp.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@Repository("hibernate")
 public class BookRepositoryHibernateImpl implements BookRepository {
 
     private final BookJPARepository repository;
@@ -19,7 +20,8 @@ public class BookRepositoryHibernateImpl implements BookRepository {
 
     @Override
     public int addBook(Book book) {
-        return 0;
+        Book b = repository.saveAndFlush(book);
+        return b != null ? 1 : 0;
     }
 
     @Override
@@ -37,13 +39,14 @@ public class BookRepositoryHibernateImpl implements BookRepository {
     }
 
     @Override
+    @Query
     public List<Book> findByAuthor(String author) {
-        return null;
+        return repository.findByAuthor(author);
     }
 
     @Override
     public List<Book> findByGenre(Genre genre) {
-        return null;
+        return repository.findAll();
     }
 
     @Override
@@ -60,18 +63,4 @@ public class BookRepositoryHibernateImpl implements BookRepository {
     public Book findByTitelAndAuthor(String titel, String author) {
         return null;
     }
-
-    @Override
-    public int addBook(Book book) {
-        Book b = repository.saveAndFlush(book);
-        return b != null ? 1 : 0;
-    }
-
-    @Override
-    public int updateBook(Book book)
-    {
-
-    }
-
-    //todo
 }

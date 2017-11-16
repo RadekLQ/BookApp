@@ -35,10 +35,14 @@ public class BookWebTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String jsonBook = ""; //todo jsonBook via Postman paste in between the ""
+        //todo jsonBook via Postman paste in between the ""
+        String jsonBook = "";
 
         HttpEntity<String> data = new HttpEntity<>(jsonBook, headers);
+
         ResponseEntity<Integer> responseEntity = template.postForEntity(URL, data, Integer.class);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isEqualTo(1);
 
     }
 
@@ -58,7 +62,6 @@ public class BookWebTest {
                 Book javaBook = new Book();
                 javaBook.setT
 
-
             }
 
             assertThat(allBooks).isNotEmpty();
@@ -73,8 +76,5 @@ public class BookWebTest {
         }
 
         //todo
-
-
-
     }
 }
